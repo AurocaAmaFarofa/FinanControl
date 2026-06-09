@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finanças Pessoais</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <span class="app-title">💼 Finanças</span>
+        <div class="date-navigator">
+          <button id="btn-prev-month" class="btn btn-secondary flex-center">
+            ‹
+          </button>
+          <span id="current-date-display" class="date-display"
+            >Janeiro 2026</span
+          >
+          <button id="btn-next-month" class="btn btn-secondary flex-center">
+            ›
+          </button>
+        </div>
+      </header>
+
+      <div id="notification-toast" class="notification hidden"></div>
+
+      <main id="main-content" class="main-content"></main>
+
+      <button id="global-fab" class="fab hidden">+</button>
+
+      <nav class="bottom-nav">
+        <button class="nav-item" data-tab="dashboard">
+          <span class="nav-icon">🏠</span>
+          <span class="nav-label">Início</span>
+          <div class="nav-indicator"></div>
+        </button>
+        <button class="nav-item" data-tab="movements">
+          <span class="nav-icon">💸</span>
+          <span class="nav-label">Lançamentos</span>
+          <div class="nav-indicator"></div>
+        </button>
+        <button class="nav-item" data-tab="fixed">
+          <span class="nav-icon">📋</span>
+          <span class="nav-label">Fixos</span>
+          <div class="nav-indicator"></div>
+        </button>
+        <button class="nav-item" data-tab="reserves">
+          <span class="nav-icon">🏦</span>
+          <span class="nav-label">Reservas</span>
+          <div class="nav-indicator"></div>
+        </button>
+        <button class="nav-item" data-tab="reports">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">Relatórios</span>
+          <div class="nav-indicator"></div>
+        </button>
+      </nav>
+    </div>
+
+    <div id="modal-container" class="modal-backdrop hidden"></div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
