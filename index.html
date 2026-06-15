@@ -9,49 +9,86 @@
   <body>
     <div class="app-container">
       <header class="app-header">
-        <span class="app-title">💼 Finanças</span>
-        <div class="date-navigator">
-          <button id="btn-prev-month" class="btn btn-secondary flex-center">
-            ‹
-          </button>
-          <span id="current-date-display" class="date-display"
-            >Janeiro 2026</span
+        <div class="header-top">
+          <span class="app-title">FINAN CONTROL</span>
+          <div class="date-navigator">
+            <button
+              id="btn-prev-month"
+              class="btn btn-ghost flex-center"
+              aria-label="Mês anterior"
+            >
+              &#8249;
+            </button>
+            <span id="current-date-display" class="date-display"
+              >Janeiro 2026</span
+            >
+            <button
+              id="btn-next-month"
+              class="btn btn-ghost flex-center"
+              aria-label="Próximo mês"
+            >
+              &#8250;
+            </button>
+          </div>
+        </div>
+        <div class="account-bar">
+          <div class="account-selector-wrapper">
+            <button
+              id="btn-account-toggle"
+              class="account-selector-btn"
+              aria-label="Selecionar conta"
+            >
+              <span class="account-dot"></span>
+              <span id="account-current-name">Conta Principal</span>
+              <span class="account-chevron">&#8964;</span>
+            </button>
+          </div>
+          <button
+            id="btn-manage-accounts"
+            class="btn-icon-text"
+            aria-label="Gerenciar contas"
           >
-          <button id="btn-next-month" class="btn btn-secondary flex-center">
-            ›
+            <span class="icon-plus-sm"></span>
           </button>
         </div>
+        <div id="account-dropdown" class="account-dropdown hidden"></div>
       </header>
 
       <div id="notification-toast" class="notification hidden"></div>
 
       <main id="main-content" class="main-content"></main>
 
-      <button id="global-fab" class="fab hidden">+</button>
+      <button id="global-fab" class="fab hidden" aria-label="Adicionar">
+        <span class="fab-icon"></span>
+      </button>
 
-      <nav class="bottom-nav">
-        <button class="nav-item" data-tab="dashboard">
-          <span class="nav-icon">🏠</span>
+      <nav
+        class="bottom-nav"
+        role="navigation"
+        aria-label="Navegação principal"
+      >
+        <button class="nav-item active" data-tab="dashboard">
+          <span class="nav-icon nav-icon--home" aria-hidden="true"></span>
           <span class="nav-label">Início</span>
           <div class="nav-indicator"></div>
         </button>
         <button class="nav-item" data-tab="movements">
-          <span class="nav-icon">💸</span>
+          <span class="nav-icon nav-icon--movements" aria-hidden="true"></span>
           <span class="nav-label">Lançamentos</span>
           <div class="nav-indicator"></div>
         </button>
         <button class="nav-item" data-tab="fixed">
-          <span class="nav-icon">📋</span>
+          <span class="nav-icon nav-icon--fixed" aria-hidden="true"></span>
           <span class="nav-label">Fixos</span>
           <div class="nav-indicator"></div>
         </button>
         <button class="nav-item" data-tab="reserves">
-          <span class="nav-icon">🏦</span>
+          <span class="nav-icon nav-icon--reserves" aria-hidden="true"></span>
           <span class="nav-label">Reservas</span>
           <div class="nav-indicator"></div>
         </button>
         <button class="nav-item" data-tab="reports">
-          <span class="nav-icon">📊</span>
+          <span class="nav-icon nav-icon--reports" aria-hidden="true"></span>
           <span class="nav-label">Relatórios</span>
           <div class="nav-indicator"></div>
         </button>
