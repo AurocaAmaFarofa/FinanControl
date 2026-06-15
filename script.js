@@ -381,13 +381,16 @@ function renderDashboard(target) {
     0,
   )
 
-  // Card escuro com saldo da conta
+  // Card escuro com saldo da conta e agora com o saldo total
   const overviewCard = document.createElement('div')
   overviewCard.className = 'account-overview-card'
   overviewCard.innerHTML = `
     <div class="account-overview-label">Saldo da conta</div>
     <div class="account-overview-name">${acc.name}</div>
-    <div class="account-overview-balance${accBalance < 0 ? ' negative' : ''}">${fmt(accBalance)}</div>
+    <div class="account-overview-balance${accBalance < 0 ? ' negative' : ''}" style="margin-bottom: 4px;">${fmt(accBalance)}</div>
+    <div style="font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 14px; letter-spacing: 0.02em;">
+      Saldo Total: <span style="color: #fff; font-weight: 600;">${fmt(saldoGlobal)}</span>
+    </div>
     <div class="account-overview-footer">
       <div class="account-overview-stat">
         <label>Entrada no mês</label>
@@ -397,21 +400,14 @@ function renderDashboard(target) {
         <label>Saída no mês</label>
         <span>${fmt(totals.totalOut)}</span>
       </div>
-      ${
-        state.data.accounts.length > 1
-          ? `
-      <div class="account-overview-stat">
-        <label>Total geral</label>
-        <span>${fmt(saldoGlobal)}</span>
-      </div>`
-          : ''
-      }
     </div>
   `
   target.appendChild(overviewCard)
 
   // Grid de cards resumo
-  const saldoLivre = accBalance - totals.totalReserved
+  // NOVO: Cálculo baseado na soma de TODAS as contas e travado em no mínimo 0.
+  const saldoLivre = Math.max(0, saldoGlobal - totals.totalReserved)
+
   const grid = document.createElement('div')
   grid.className = 'summary-grid'
   grid.innerHTML = `
